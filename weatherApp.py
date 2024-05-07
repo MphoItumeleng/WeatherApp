@@ -38,6 +38,7 @@ def search():
     result = get_weather(city)
     if result is None:
         return
+    
     # If the city is found, unpack the weather information
     icon_url, temperature, description, city, country = result
     location_label.configure(text=f"{city}, {country}")
@@ -56,27 +57,24 @@ root = ttkbootstrap.Window(themename="morph")
 root.title("Weather App")
 root.geometry("400x400")
 
-# Entry widget -> to enter the city name
+# Entry widget
 city_entry = ttkbootstrap.Entry(root, font="Helvetica, 18")
 city_entry.pack(pady=10)
 
-# Button widget -> to search for the weather information
+# Button widget
 search_button = ttkbootstrap.Button(root, text="Search", command=search, bootstyle="warning")
 search_button.pack(pady=10)
 
-# Label widget to show the city/country name
+# Label widgets to display results
 location_label = tk.Label(root, font="Helvetica, 25")
 location_label.pack(pady=20)
 
-# Label widget -> to show the weather icon
 icon_label = tk.Label(root)
 icon_label.pack()
 
-#Label widget -> to show the temperature
 temperature_label = tk.Label(root, font="Helvetica, 20")
 temperature_label.pack()
 
-# Label widget -> to show the weather description
 description_label = tk.Label(root, font="Helvetica, 20")
 description_label.pack()
 
